@@ -2,6 +2,6 @@
 
 require_once __DIR__ . '/autoload.php';
 
-$users = \App\Model\User::findAll();
+$news = \App\Model\Article::findAll();
 
-var_dump($users);
+include __DIR__ . '/templates/index.php';
