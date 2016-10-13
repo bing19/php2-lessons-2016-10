@@ -10,7 +10,6 @@ class Article
 
     public static $table = 'news';
 
-    public $id;
     public $title;
     public $lead;
 
