@@ -2,11 +2,15 @@
 
 require_once __DIR__ . '/autoload.php';
 
-$article = new \App\Model\Article();
+/**
+ * @deprecated
+ * @param $a
+ * @param $b
+ * @return mixed
+ */
+function sum($a, $b)
+{
+    return $a+$b;
+}
 
-$article->title = 'Пример новости';
-$article->lead = 'Текст введения';
-
-$article->insert();
-
-var_dump($article);
+echo sum(2, 3);
