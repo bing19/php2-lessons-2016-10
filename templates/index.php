@@ -17,7 +17,7 @@
       <article>
         <h1><?php echo $article->title; ?></h1>
         <div><?php echo $article->lead; ?></div>
-        <p><?php echo $article->author ?? 'без автора'; ?></p>
+        <p><?php echo isset($article->author) ? $article->author->name : '' ?></p>
       </article>
   <?php endforeach; ?>
 

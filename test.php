@@ -2,15 +2,12 @@
 
 require_once __DIR__ . '/autoload.php';
 
-/**
- * @deprecated
- * @param $a
- * @param $b
- * @return mixed
- */
 function sum($a, $b)
 {
+    echo $a+$b;
     return $a+$b;
 }
 
-echo sum(2, 3);
+if ( sum(2, 3) == 7 && sum(3, 2) == 5) {
+    echo 'Тест пройден';
+}

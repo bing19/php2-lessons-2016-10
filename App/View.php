@@ -4,22 +4,8 @@ namespace App;
 
 class View
 {
-    protected $data = [];
 
-    public function __set($key, $value)
-    {
-        $this->data[$key] = $value;
-    }
-
-    public function __isset($name)
-    {
-        return isset($this->data[$name]);
-    }
-
-    public function __get($key)
-    {
-        return $this->data[$key];
-    }
+    use TMagic;
 
     public function display($template)
     {
