@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/autoload.php';
 
-function sum($a, $b)
+
+function op()
 {
-    echo $a+$b;
-    return $a+$b;
+    return function ($a, $b) {
+        return $a+$b;
+    };
 }
 
-if ( sum(2, 3) == 7 && sum(3, 2) == 5) {
-    echo 'Тест пройден';
-}
+echo op()(3, 4);

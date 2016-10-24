@@ -15,7 +15,11 @@
 
   <?php foreach ($this->news as $article) : ?>
       <article>
-        <h1><?php echo $article->title; ?></h1>
+        <h1>
+            <a href="/article.php?id=<?php echo $article->id; ?>">
+                <?php echo $article->title; ?>
+            </a>
+        </h1>
         <div><?php echo $article->lead; ?></div>
         <p><?php echo isset($article->author) ? $article->author->name : '' ?></p>
       </article>
