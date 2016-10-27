@@ -9,7 +9,11 @@ class Db
 
     public function __construct()
     {
-        $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=php2', 'root', '');
+        try {
+            $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=php2', 'root', '');
+        } catch (\PDOException $e) {
+            throw new \Exception('Ошибка соединения с БД');
+        }
     }
 
     public function execute(string $sql, array $data = [])
@@ -17,8 +21,7 @@ class Db
         $sth = $this->dbh->prepare($sql);
         $result = $sth->execute($data);
         if (false === $result) {
-            var_dump( $sth->errorInfo() );
-            die;
+            throw new \Exception('Ошибка запроса к БД');
         }
         return true;
     }
@@ -28,8 +31,7 @@ class Db
         $sth = $this->dbh->prepare($sql);
         $result = $sth->execute($data);
         if (false === $result) {
-            var_dump( $sth->errorInfo() );
-            die;
+            throw new \Exception('Ошибка запроса к БД');
         }
         if (null === $class) {
             return $sth->fetchAll();

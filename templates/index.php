@@ -13,6 +13,12 @@
 
 <body>
 
+    <form action="/index/login" method="post">
+        Логин: <input type="text" name="login">
+        Пароль: <input type="password" name="password">
+        <input type="submit">
+    </form>
+
   <?php foreach ($this->news as $article) : ?>
       <article>
         <h1>

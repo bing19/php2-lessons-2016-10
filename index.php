@@ -11,4 +11,19 @@ $ctrl = new $ctrlClassName;
 $actRequest = !empty($parts[2]) ? $parts[2] : 'Default';
 $actMethodName = 'action' . $actRequest;
 
-$ctrl->$actMethodName();
+try {
+
+    $ctrl->$actMethodName();
+
+} catch (\App\MultiException $e) {
+
+    echo 'Errors: ';
+    foreach ($e as $error) {
+        echo $error->getMessage();
+    }
+
+} catch (Exception $e) {
+
+    echo 'Error: ' . $e->getMessage();
+
+}
