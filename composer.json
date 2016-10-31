@@ -1,0 +1,6 @@
+{
+  "require": {
+    "psr/log": "*",
+    "swiftmailer/swiftmailer": "5.4.*"
+  }
+}
