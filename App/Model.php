@@ -61,4 +61,27 @@ abstract class Model
         }
     }
 
+    public function fill(array $data)
+    {
+        $errors = new MultiException();
+
+        foreach ($data as $key => $value) {
+            try {
+
+                if ('id' == $key) {
+                    throw new \Exception('Нельзя присваивать ID!');
+                }
+
+                $this->$key = $value;
+
+            } catch (\Exception $e) {
+                $errors->add($e);
+            }
+        }
+
+        if (count($errors) > 0) {
+            throw $errors;
+        }
+    }
+
 }
