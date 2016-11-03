@@ -12,8 +12,11 @@ class News
     public function actionOne()
     {
         $article = Article::findById($_GET['id']);
+        if (empty($article)) {
+            throw new \Exception('Новость не найдена');
+        }
         $this->view->article = $article;
-        $this->view->display(__DIR__ . '/../../templates/news/one.php');
+        $this->view->display('news/one.html');
     }
 
 }

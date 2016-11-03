@@ -22,7 +22,7 @@
   <?php foreach ($this->news as $article) : ?>
       <article>
         <h1>
-            <a href="/article.php?id=<?php echo $article->id; ?>">
+            <a href="/news/one/?id=<?php echo $article->id; ?>">
                 <?php echo $article->title; ?>
             </a>
         </h1>

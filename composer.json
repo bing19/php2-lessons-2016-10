@@ -1,6 +1,7 @@
 {
   "require": {
     "psr/log": "*",
-    "swiftmailer/swiftmailer": "5.4.*"
+    "swiftmailer/swiftmailer": "5.4.*",
+    "twig/twig": "1.*"
   }
 }

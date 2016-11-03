@@ -8,6 +8,15 @@ class View
 
     use TMagic;
 
+    protected $twig;
+
+    public function __construct()
+    {
+        $this->twig = new \Twig_Environment(
+            new \Twig_Loader_Filesystem([__DIR__ . '/../templates'])
+        );
+    }
+
     public function display($template)
     {
         echo $this->render($template);
@@ -15,11 +24,7 @@ class View
 
     public function render($template)
     {
-        ob_start();
-        include $template;
-        $html = ob_get_contents();
-        ob_end_clean();
-        return $html;
+        return $this->twig->render($template, $this->data);
     }
 
     public function count()
